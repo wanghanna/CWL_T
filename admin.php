@@ -1,12 +1,19 @@
 <?php
 require_once('sql.php');
+if(empty($_SESSION['admin'])) plo("index.php");
 $body = (empty($_GET['page'])) ? 'main' : $_GET['page'];
 switch ($body) {
   case 'main':
-  $zone = "main.php";
+  $zone = "main";
   break;
   case 'light':
-    $zone = "light.php";
+    $zone = "light";
+    break;
+    case 'component':
+    $zone = "component";
+    break;
+    case 'news':
+    $zone = "news";
     break;
 }
 ?>
@@ -21,14 +28,15 @@ switch ($body) {
 
 </head>
 <body class="row flex-column align-items-center">
-  <div class="bg-secondary p-3 mt-2 badge-pill row container">
-  <button class="btn btn-light mx-3" onclick="document.location.href='?page=main'">回首頁</button>
-<button class="btn btn-outline-light mr-3" onclick="document.location.href='?page=light'">光源產品管理</button>
-<button class="btn btn-outline-light mr-3" onclick="">零組件產品管理</button>
-<button class="btn btn-outline-light mr-3" onclick="">最新消息</button>
+  <div class="my-1 bg-light row m-0 p-0 container justify-content-between">
+<a href="?page=main" class="col bg-light px-3 py-1 text-center">回首頁</a>
+<a href="?page=light" class="col bg-light px-3 py-1 text-center">光源管理</a>
+<a href="?page=component" class="col bg-light px-3 py-1 text-center">零組件管理</a>
+<a href="?page=news" class="col bg-light px-3 py-1 text-center">最新消息管理</a>
+<button class="col btn btn-outline-warning mr-3 text-center decoration" onclick="document.location.href=('api.php?do=logout')">登出</button>
 </div>
 <hr />
-<?php include_once($zone) ?>
+<?php include_once("a".$zone.".php") ?>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>

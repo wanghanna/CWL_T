@@ -1,3 +1,7 @@
+<?php
+require_once('sql.php');
+if(!empty($_SESSION['admin'])) plo("admin.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
