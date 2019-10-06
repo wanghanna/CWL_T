@@ -21,7 +21,7 @@ th{
 <input class="btn btn-secondary" type="reset" value="重置">
 </div>
 </div>
-<table style="" align="center" class="shadow rounded mb-5" style="background:#F8F9FA;">
+<table style="width:100%" align="center" class="shadow rounded mb-5" style="background:#F8F9FA;">
 <thead class="">
 <tr class="bg-info">
   <th colspan="7"><h3>光源產品管理</h3></th>
