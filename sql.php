@@ -60,12 +60,33 @@ function delete($ary,$tb){
     }
   }
 }
-
-function getmax(){
+// 分頁處理
+function getmax($tb){
   global $db; 
-  $row=$db->query("select COUNT(*) from cwl_plight where 1")->fetch();
+  $row=$db->query("SELECT COUNT(*) FROM ".$tb." where 1")->fetch();
+  // print_r($row);
   return ceil($row[0]/5);
 }
+//細項的分頁處理
+function dmax($tb,$wh){
+  global $db;
+  $many=$db->query("SELECT COUNT(*) FROM ".$tb." WHERE team = '".$wh."'")->fetch(); 
+  // print_r($many);
+  return ceil($many[0]/5);
+}
+// 幾筆
+function hm($tb){
+  global $db; 
+  $row=$db->query("SELECT COUNT(*) FROM ".$tb." where 1")->fetch();
+  return $row[0];
+}
+//細項幾筆
+function dhm($tb,$wh){
+  global $db; 
+  $row=$db->query("SELECT COUNT(*) FROM ".$tb." where team='".$wh."'")->fetch();
+  return $row[0];
+}
+//新增檔案
 function addfile($file){
   $newname=time()."_".$file['name'];
   copy($file['tmp_name'],"upload/".$newname);

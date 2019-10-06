@@ -14,12 +14,14 @@ switch ($_GET['do'])
   unset($_SESSION['admin']);
   plo('http://220.128.133.15/s1080214/project/dist/#/');
   break;
+  //新增光源產品
   case 'lightadd':
   $_POST['pic'] = addfile($_FILES['img']);
   $_POST['date'] = date("Y-m-d H:i:s");
   insert($_POST,"cwl_plight");
-  print_r($_POST);
-  plo('admin.php?page=light');
+  // print_r($_POST);
+  $max=getmax('cwl_plight');
+  plo('admin.php?page=light&p='.$max);
   break;
   case 'lightmdy':
   // print_r($_POST);
