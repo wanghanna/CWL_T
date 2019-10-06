@@ -39,14 +39,28 @@ th{
     height: 1px;
     background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
 }
+#pg a{
+  text-decoration:none;
+  color:#343A40;
+  transition:0.5s;
+}
+#pg a:hover{
+  text-decoration:none;
+  color:#ebebeb;
+  font-size:2rem;
+}
+
 </style>
-<body class="vw-100" style="position:relative">
+<body style="position:relative">
 <div class="text-center" style="background:#ebebeb;box-shadow:inset 0 0 10px white;position:relative">
 <form method="post" action="api.php?do=lightmdy">
-<div class="sticky-top bg-dark row m-0 justify-content-between p-3">
-<div><input class="btn btn-secondary" type="button" value="新增資料" onclick=<?=jlo('view.php?do=lightadd') ?>></div>
+<div class="row m-0 flex-column">
+<div class="row m-0 justify-content-between p-2 bg-info">  
+  <h3 class="text-light">光源產品管理</h3>
+  
 <!-- 頁碼 -->
-<div>
+<div id="pg" class="col mr-auto text-light">
+<span class="text-light mx-2">頁碼</span>
 <?php
 if(!empty($_GET['team'])){
   $max=dmax('cwl_plight',$_GET['team']);
@@ -71,20 +85,39 @@ if($nowpage!=$max) echo ' <a href="?page=light&p='.($nowpage+1).'">>></a> ';
 ?>
 </div>
 <!-- 頁碼end -->
+
+  <h5 class="mx-2">第<?= $begin+1 ?>-<?= $endpage ?>筆</h5>
+  <h5 class="mx-2">每頁顯示:<?= $many ?>筆</h5>
+  <h5 class="mx-2">共<?= $hm ?>筆資料</h5>
+</div>
+<div class="sticky-top bg-dark row m-0 justify-content-between p-3">
+<div><input class="btn btn-secondary" type="button" value="新增資料" onclick=<?=jlo('view.php?do=lightadd') ?>></div>
+
+<!-- 輸入產品組別 -->
+<div class="my-2">
+<span class="text-info">組別:</span>
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light'" value="全部顯示">
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=1'" value="1">
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=2'" value="2">
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=3'" value="3">
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=4'" value="4">
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=5'" value="5">
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=6'" value="6">
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=7'" value="7">
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=8'" value="8">
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=9'" value="9">
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=10'" value="10">
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=11'" value="11">
+</div>
+
 <div class="btn-group">
 <input class="btn btn-secondary" type="submit" value="修改確定">
 <input class="btn btn-secondary" type="reset" value="重置">
 </div>
 </div>
+</div>
 <table style="width:100%" align="center" class="shadow rounded mb-5" style="background:#F8F9FA;">
-<thead class="">
-<tr class="bg-info">
-  <th colspan="1"><h5>第<?= $begin+1 ?>-<?= $endpage ?>筆</h5></th>
-  <th colspan="4"><h3>光源產品管理</h3></th>
-  <th colspan="1"><h5>每頁顯示:<?= $many ?>筆</h5></th>
-  <th colspan="1"><h5>共<?= $hm ?>筆資料</h5></th>
-  
-</tr>
+<thead>
 <tr>
   <th>產品圖片</th>
   <th>產品組別<br>(數字)</th>
@@ -125,6 +158,7 @@ foreach($rows as $row){
 </table>
 <div>
 <hr class="styleT">
+
 </form>
 </div>
 </body>
