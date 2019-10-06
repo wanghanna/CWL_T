@@ -12,8 +12,7 @@ $body = (empty($_GET['page'])) ? 'main' : $_GET['page'];
   <title>Document</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   <link href="./css/font_NotoSansTC.css" rel="stylesheet">
-  <link href="https://www.palettable.io/00C3CA-7D8E91-32302E-F8E9C5-CDAD70">
-  <script src="./js/js.js"></script>
+
 <style>
 *{
   font-family: 'Noto Sans TC', sans-serif;
@@ -51,5 +50,6 @@ $body = (empty($_GET['page'])) ? 'main' : $_GET['page'];
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>
