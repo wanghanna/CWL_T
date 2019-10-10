@@ -105,9 +105,9 @@ if($nowpage!=$max) echo ' <a href="?page=light&p='.($nowpage+1).'">>></a> ';
 <input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=6'" value="6">
 <input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=7'" value="7">
 <input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=8'" value="8">
-<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=9'" value="9">
+<!-- <input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=9'" value="9">
 <input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=10'" value="10">
-<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=11'" value="11">
+<input class="btn btn-info m-1" type ="button" onclick="location.href='?page=light&team=11'" value="11"> -->
 </div>
 
 <div class="btn-group">
